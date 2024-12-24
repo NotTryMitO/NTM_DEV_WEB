@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTM DEV | Bots de Qualidade</title>
+    <link rel="stylesheet" href="/site/static/css/index.css">
+    <link rel="icon" href="/site/static/images/logo3.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<nav class="navbar">
+    <div class="logo"><img src="/site/static/images/logo3.png" alt="Logo NTM DEV"></div>
+    <button class="menu-toggle" aria-label="Abrir menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    <ul class="nav-menu">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#bots">Bots</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#faq">Perguntas Frequentes</a></li>
+
+        <button class="logout" id="logout-btn">
+            <div class="user-info">
+                <img src="{{ avatar_url }}" alt="Avatar" width="30" height="30">
+                <span class="username">{{ username }}</span>
+            </div>
+        </button>
+    </ul>
+</nav>
+<body>
+<section id="home" class="hero-section">
+    <div class="hero-content">
+        <h4 class="subtitle">Pelos criadores da NTM DEV</h4>
+        <h1 class="title">Tenha seu BOT em<br> tempo recorde.</h1>
+        <p class="description">
+                Bots para Discord projetados e habilmente elaborados, criados pelos criadores da NTM DEV. 
+                A equipa perfeita para desenvolver o teu BOT.
+        </p>
+    </div>
+</section>
+<!-- Pricing Section -->
+<section class="pricing-section" id="bots">
+    <div class="container">
+        <h2 class="section-title">Descubra nossos BOTs</h2>
+        <p class="section-subtitle">
+            Abaixo podes ver os nossos planos e escolher o que melhor se adapta às tuas necessidades.
+        </p>
+
+        <div class="pricing-cards">
+            <!-- Card 1 -->
+            <div class="pricing-card">
+                <h3 class="plan-title">SUGESTÃO</h3>
+                <p class="plan-price">1€ <span>/mês *</span></p>
+                <p class="plan-description">
+                    Ideal para gerenciar sugestões de forma eficiente e organizada, facilitando a tomada de decisões.
+                </p>
+                <ul class="plan-features">
+                    <li>Notificações automáticas de novas sugestões</li>
+                    <li>Integração com canais do Discord para gerenciamento direto</li>
+                    <li>Recebe e armazena as sugestões em tempo real</li>
+                </ul>
+                <a href="#" class="btn-primary" id="btn-sell-1">Comprar</a>
+            </div>
+            
+
+            <!-- Card 2 -->
+            <div class="pricing-card popular">
+                <span class="badge">Mais Popular</span>
+                <h3 class="plan-title">COMANDOS PERSONALIZADOS</h3>
+                <p class="plan-price">3€ <span>/mês *</span></p>
+                <p class="plan-description">
+                    Para quem deseja criar comandos personalizados exclusivos, oferecendo mais controle e flexibilidade ao servidor.
+                </p>
+                <ul class="plan-features">
+                    <li>Resposta automática com conteúdo dinâmico</li>
+                    <li>Integração com variáveis para personalização avançada</li>
+                    <li>Controle de permissões para diferentes cargos</li>
+                </ul>
+                <a href="#" class="btn-primary" id="btn-sell-2">Comprar</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="pricing-card">
+                <h3 class="plan-title">ANTI-LINKS</h3>
+                <p class="plan-price">2€ <span>/mês *</span></p>
+                <p class="plan-description">
+                    Proteje o teu servidor contra links indesejados e potencialmente perigosos, mantendo a segurança e a integridade do teu espaço.
+                </p>
+                <ul class="plan-features">
+                    <li>Bloqueio automático de links maliciosos</li>
+                    <li>Notificação ao administrador sobre links removidos</li>
+                    <li>Integração com logs para auditoria completa</li>
+                </ul>
+                <a href="#" class="btn-primary" id="btn-sell-3">Comprar</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Reviews Section -->
+<section class="reviews-section" id="avaliacoes">
+    <div class="container">
+        <h2 class="section-title">Veja as nossas avaliações</h2>
+        <p class="section-subtitle">
+            Abaixo você pode conferir as reviews de alguns dos nossos clientes.
+        </p>
+
+        <div class="reviews-carousel">
+            <!-- Review 1 -->
+            <div class="review-card">
+                <img src="/site/static/images/+shop_logo.png" alt="Foto do Cliente" class="review-avatar">
+                <h3 class="review-name">+SHOP</h3>
+                <p class="review-text">
+                    "Não tenho palavras para expressar minha satisfação com o trabalho realizado! Agradeço imensamente pelo excelente serviço prestado. Qualidade excepcional e atendimento de altíssimo nível!"
+                </p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSieyaZb-hSOtWnc6wha3QQlMLL8_cfvr2WIQ&s" alt="Foto do Cliente" class="review-avatar">
+                <h3 class="review-name">Smurf_Verde</h3>
+                <p class="review-text">
+                    "O bot desenvolvido superou todas as minhas expectativas! Responde de forma ágil e foi criado com todas as funcionalidades desejadas. Atendimento excepcional!"
+                </p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <img src="https://cdn.discordapp.com/avatars/1150087342695129108/a_e925fefbe8c5806865c44f3fe018a21d.png" alt="Foto do Cliente" class="review-avatar">
+                <h3 class="review-name">kazzM</h3>
+                <p class="review-text">
+                    "O bot está excelente, com uma configuração impecável e design clean. Atendimento atencioso e prestativo. Recomendo com certeza!"
+                </p>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-card">
+                <img src="https://cdn.discordapp.com/avatars/1049052714966978682/a_b6f0da08763be7a87fbac2bef70839cb.png" alt="Foto do Cliente" class="review-avatar">
+                <h3 class="review-name">Igris</h3>
+                <p class="review-text">
+                    "Resultado é impecável. Pode comprar sem medo!"
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FAQ Section -->
+<section class="faq-section" id="faq">
+    <div class="container">
+        <h2 class="section-title">Você tem alguma pergunta?</h2>
+        <p class="section-subtitle">
+            Abaixo, você pode ver as perguntas mais frequentes.
+        </p>
+
+        <div class="faq">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    Como posso comprar um bot para o Discord?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        A compra pode ser feita diretamente através de nosso Discord. Basta selecionar o bot desejado, abrir um TICKET, informar seu pedido e seguir as instruções!
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    É possível solicitar reembolso após a compra?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Não oferecemos reembolso após a compra, mas garantimos suporte completo para resolver qualquer problema que você possa encontrar.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    Posso revender ou distribuir os bots adquiridos?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Não é permitido revender ou distribuir os bots adquiridos, conforme os termos de uso acordados.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    Qual é o prazo para manter o orçamento e o valor pago?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        O orçamento e o valor pago permanecem válidos por 7 dias úteis a partir da data de aprovação.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quais são os direitos autorais sobre os bots adquiridos?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>
+                        Os direitos autorais são reservados ao desenvolvedor, mas você terá uma licença de uso total conforme os termos do contrato.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>
+      &copy; 2024 NTM DEV. All rights reserved.
+    </p>
+</footer>
+<script src="/site/static/js/index.js"></script>
+</body>
+</html>
