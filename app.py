@@ -355,11 +355,13 @@ async def ticket(ctx, interaction = None):
 '''bot ticket - bot2 - ends'''
 
 async def main():
-    await asyncio.gather(
-        start_quart_app(),
-        bot1.start(bot1_token),
-        bot2.start(bot2_token)
-    )
+    async with bot1:
+        bot1.loop.create_task(app.run_task(host="0.0.0.0", port=5000))
+        await asyncio.gather(
+            bot1.start(bot1_token),  # Inicia o bot1
+            bot2.start(bot2_token)   # Inicia o bot2
+        )
+
 
 if __name__ == "__main__":
     asyncio.run(main())
