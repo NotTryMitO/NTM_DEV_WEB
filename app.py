@@ -6,7 +6,6 @@ import asyncio
 import os
 from dotenv import load_dotenv
 
-
 app = Quart(__name__, template_folder="site/templates")
 app.secret_key = 'bananaazul'
 
