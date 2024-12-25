@@ -362,6 +362,5 @@ async def main():
             bot2.start(bot2_token)   # Inicia o bot2
         )
 
-
 if __name__ == "__main__":
     asyncio.run(main())
