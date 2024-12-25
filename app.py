@@ -355,12 +355,30 @@ async def ticket(ctx, interaction = None):
 '''bot ticket - bot2 - ends'''
 
 async def main():
+    print("Iniciando o main...")
     async with bot1:
         bot1.loop.create_task(app.run_task(host="0.0.0.0", port=5000))
-        await asyncio.gather(
-            bot1.start(bot1_token),  # Inicia o bot1
-            bot2.start(bot2_token)   # Inicia o bot2
-        )
+        try:
+            # Inicia os bots
+            print("Iniciando bot1 e bot2...")
+            await asyncio.gather(
+                bot1.start(bot1_token),
+                bot2.start(bot2_token)
+            )
+        except Exception as e:
+            print(f"Erro ao iniciar os bots: {e}")
+            raise
+
+async def main_loop():
+    while True:
+        try:
+            await main()
+        except Exception as e:
+            print(f"Erro ao executar main: {e}")
+        finally:
+            print("Reiniciando em 30 segundos...")
+            await asyncio.sleep(30)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(main_loop())
+
