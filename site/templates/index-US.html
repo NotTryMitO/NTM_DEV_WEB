@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="titulo-pag">NTM DEV | Quality Bots</title>
+    <link rel="stylesheet" href="/site/static/css/index.css">
+    <link rel="icon" href="/site/static/images/logo3.png" type="image/png">
+</head>
+<nav class="navbar">
+    <div class="logo"><img src="/site/static/images/logo3.png" alt="Logo NTM DEV" height="50" width="50"></div>
+    <button class="menu-toggle" aria-label="Abrir menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    <ul class="nav-menu">
+        <li data-i18n="nav-inicio"><a href="#home">Home</a></li>
+        <li data-i18n="nav-bots"=""><a href="#bots">Bots</a></li>
+        <li data-i18n="nav-avaliacoes"><a href="#avaliacoes">Reviews</a></li>
+        <li data-i18n="faq"><a href="#faq">FAQ</a></li>
+        
+        <a onclick="translatorbtn('PT')">
+            <button class="language-toggle" >🇵🇹 Português</button>
+        </a>
+        <div class="dropdown">
+            <button class="dropdown-btn">
+                <div class="user-info">
+                    <img src="{{ avatar_url }}" alt="Avatar" width="30" height="30">
+                    <span class="username">{{ username }}</span>
+                </div>
+            </button>
+            <div class="dropdown-content">
+                <a onclick="logout()">Sign Out</a>
+            </div>
+        </div>
+    </ul>
+</nav>
+<body>
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h4 class="subtitle">By the creators of NTM DEV</h4>
+            <h1 class="title">Get your BOT<br> in record time.</h1>
+            <p class="description">
+                Discord bots skillfully designed and crafted by NTM DEV creators. The perfect team to develop your BOT.
+            </p>
+        </div>
+    </section>
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="bots">
+        <div class="container">
+            <h2 class="section-title">Discover our BOTs</h2>
+            <p class="section-subtitle">
+                Below you can see our plans and choose the one that best suits your needs.
+            </p>
+    
+            <div class="pricing-cards">
+                <!-- Card 1 -->
+                <div class="pricing-card">
+                    <h3 class="plan-title">SUGGESTION</h3>
+                    <p class="plan-price">1€ <span>/month *</span></p>
+                    <p class="plan-description">
+                        Ideal for efficiently managing suggestions and facilitating decision-making.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Automatic notifications of new suggestions</li>
+                        <li>Integration with Discord channels for direct management</li>
+                        <li>Receive and store suggestions in real time</li>
+                    </ul>
+                    <a href="#" class="btn-primary" id="btn-sell-1">Buy</a>
+                </div>
+                
+    
+                <!-- Card 2 -->
+                <div class="pricing-card popular">
+                    <span class="badge">Most Popular</span>
+                    <h3 class="plan-title">CUSTOM COMMANDS</h3>
+                    <p class="plan-price">3€ <span>/month *</span></p>
+                    <p class="plan-description">
+                        For those who want to create exclusive custom commands, offering more control and flexibility.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Automatic response with dynamic content</li>
+                        <li>Integration with variables for advanced customization</li>
+                        <li>Permission control for different roles</li>
+                    </ul>
+                    <a href="#" class="btn-primary" id="btn-sell-2">Buy</a>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="pricing-card">
+                    <h3 class="plan-title">ANTI-LINKS</h3>
+                    <p class="plan-price">2€ <span>/month *</span></p>
+                    <p class="plan-description">
+                        Protect your server from unwanted and potentially dangerous links, maintaining security and integrity.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Automatic blocking of malicious links</li>
+                        <li>Admin notification of removed links</li>
+                        <li>Integration with logs for full auditing</li>
+                    </ul>
+                    <a href="#" class="btn-primary" id="btn-sell-3">Buy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="avaliacoes">
+        <div class="container">
+            <h2 class="section-title">See our reviews</h2>
+            <p class="section-subtitle">
+                Below you can check the reviews of some of our customers.
+            </p>
+    
+            <div class="reviews-carousel">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <img src="/site/static/images/+shop_logo.png" alt="Foto do Cliente" class="review-avatar">
+                    <h3 class="review-name">+SHOP</h3>
+                    <p class="review-text">
+                        "I have no words to express my satisfaction with the work done! I thank you immensely for the excellent service provided. Exceptional quality and top-notch service!"
+                    </p>
+                </div>
+    
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSieyaZb-hSOtWnc6wha3QQlMLL8_cfvr2WIQ&s" alt="Foto do Cliente" class="review-avatar">
+                    <h3 class="review-name">Smurf_Verde</h3>
+                    <p class="review-text">
+                        "The bot developed exceeded all my expectations! It responds quickly and was created with all the desired features. Exceptional service!"
+                    </p>
+                </div>
+    
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <img src="https://cdn.discordapp.com/avatars/1150087342695129108/a_e925fefbe8c5806865c44f3fe018a21d.png" alt="Foto do Cliente" class="review-avatar">
+                    <h3 class="review-name">kazzM</h3>
+                    <p class="review-text">
+                        "The bot is excellent, with impeccable setup and clean design. Attentive and helpful service. Highly recommend!"
+                    </p>
+                </div>
+    
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <img src="https://cdn.discordapp.com/avatars/1169309329460035715/af830c9b69732b894d69b471cfd8eb1b.png" alt="Foto do Cliente" class="review-avatar">
+                    <h3 class="review-name">Igris</h3>
+                    <p class="review-text">
+                        "The result is impeccable. You can buy without fear!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Do you have a question?</h2>
+            <p class="section-subtitle">
+                Below, you can see the most frequently asked questions.
+            </p>
+    
+            <div class="faq">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How can I buy a bot for Discord?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Purchases can be made directly through our Discord. Just select the desired bot, open a TICKET, provide your request, and follow the instructions!
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is it possible to request a refund after purchase?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            We do not offer refunds after purchase, but we guarantee full support to resolve any issues you may encounter.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I resell or distribute the purchased bots?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Reselling or distributing the purchased bots is not allowed, according to the agreed terms of use.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is the time frame for maintaining the budget and the amount paid?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            The budget and the amount paid remain valid for 7 working days from the approval date.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What are the copyright rights to the purchased bots?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Copyrights are reserved for the developer, but you will have full usage rights as per the contract terms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>
+          &copy; 2024 NTM DEV. All rights reserved.
+        </p>
+    </footer>
+    <script src="/site/static/js/index-US.js"></script>
+    <script src="https://unpkg.com/i18next/i18next.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    $("a").on('click', function(event) {
+
+        if (this.hash !== "") {
+            event.preventDefault();
+
+            var hash = this.hash;
+
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+            }, 800, function(){
+   
+            window.location.hash = hash;
+                });
+            }
+        });
+    });
+    function translatorbtn(language) {
+    window.location.href = "/change_language?lang=" + language;
+    }
+    </script>
+    </body>
+</html>

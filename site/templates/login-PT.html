@@ -3,38 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="titulo-pag">NTM DEV | Bots de Qualidade</title>
-    <link rel="stylesheet" href="/site/static/css/index.css">
+    <title>NTM DEV | Bots de Qualidade</title>
+    <link rel="stylesheet" href="/site/static/css/login.css">
     <link rel="icon" href="/site/static/images/logo3.png" type="image/png">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <nav class="navbar">
     <div class="logo"><img src="/site/static/images/logo3.png" alt="Logo NTM DEV"></div>
-    <button class="menu-toggle" aria-label="Abrir menu">
+    <button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
     </button>
     <ul class="nav-menu">
-        <li data-i18n="nav-inicio""><a href="#home">Início</a></li>
-        <li data-i18n="nav-bots"=""><a href="#bots">Bots</a></li>
-        <li data-i18n="nav-avaliacoes"><a href="#avaliacoes">Avaliações</a></li>
-        <li data-i18n="faq"><a href="#faq">Perguntas Frequentes</a></li>
-
-        <button class="logout" id="logout-btn">
-            <div class="user-info">
-                <img src="{{ avatar_url }}" alt="Avatar" width="30" height="30">
-                <span class="username">{{ username }}</span>
-            </div>
-        </button>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#bots">Bots</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#faq">Perguntas Frequentes</a></li>
+        <li class="separator">|</li>
+        <a class="translator" onclick="translatorbtn('US')">
+            <button class="language-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
+                    <path d="M3.784 11.25h3.99c.153-2.35.994-4.44 1.815-5.969.282-.525.564-.988.82-1.378a8.255 8.255 0 0 0-6.625 7.347M12 4.232c-.305.43-.697 1.03-1.09 1.759-.75 1.398-1.481 3.237-1.632 5.259h5.444c-.15-2.022-.882-3.861-1.633-5.259-.392-.73-.784-1.33-1.089-1.76m2.722 8.518H9.278c.15 2.022.882 3.861 1.633 5.259.392.73.784 1.33 1.089 1.76.305-.43.697-1.03 1.09-1.76.75-1.398 1.481-3.237 1.632-5.259m-4.313 7.347c-.256-.39-.538-.853-.82-1.378-.82-1.528-1.662-3.618-1.815-5.969h-3.99a8.255 8.255 0 0 0 6.625 7.347m3.182 0c.256-.39.538-.853.82-1.378.82-1.528 1.662-3.618 1.815-5.969h3.99a8.255 8.255 0 0 1-6.625 7.347m6.625-8.847h-3.99c-.153-2.35-.994-4.44-1.815-5.969a19 19 0 0 0-.82-1.378 8.255 8.255 0 0 1 6.625 7.347M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12" fill="none" stroke="black" stroke-width="2"/>
+                </svg>
+                English
+            </button>
+        </a>
+        <li class="login-btn"><a href="/discord/login">Entrar</a></li>
     </ul>
 </nav>
 <body>
 <section id="home" class="hero-section">
     <div class="hero-content">
-        <h4 class="subtitle" data-i18n="title-1">Pelos criadores da NTM DEV</h4>
-        <h1 class="title" data-i18n="title-2">Tenha seu BOT em<br> tempo recorde.</h1>
-        <p class="description" data-i18n="title-3">
+        <h4 class="subtitle">Pelos criadores da NTM DEV</h4>
+        <h1 class="title">Tenha seu BOT em<br> tempo recorde.</h1>
+        <p class="description">
                 Bots para Discord projetados e habilmente elaborados, criados pelos criadores da NTM DEV. 
                 A equipa perfeita para desenvolver o teu BOT.
         </p>
@@ -43,57 +45,57 @@
 <!-- Pricing Section -->
 <section class="pricing-section" id="bots">
     <div class="container">
-        <h2 class="section-title" data-i18n="price-title">Descubra nossos BOTs</h2>
-        <p class="section-subtitle" data-i18n="price-description">
+        <h2 class="section-title">Descubra nossos BOTs</h2>
+        <p class="section-subtitle">
             Abaixo podes ver os nossos planos e escolher o que melhor se adapta às tuas necessidades.
         </p>
 
         <div class="pricing-cards">
             <!-- Card 1 -->
             <div class="pricing-card">
-                <h3 class="plan-title" data-i18n="nome-price-1">SUGESTÃO</h3>
-                <p class="plan-price" data-i18n="price-price-1">1€ <span>/mês *</span></p>
-                <p class="plan-description" data-i18n="description-price-1">
+                <h3 class="plan-title">SUGESTÃO</h3>
+                <p class="plan-price">1€ <span>/mês *</span></p>
+                <p class="plan-description">
                     Ideal para gerenciar sugestões de forma eficiente e organizada, facilitando a tomada de decisões.
                 </p>
                 <ul class="plan-features">
-                    <li data-i18n="plan-1">Notificações automáticas de novas sugestões</li>
-                    <li data-i18n="plan-2">Integração com canais do Discord para gerenciamento direto</li>
-                    <li data-i18n="plan-3">Recebe e armazena as sugestões em tempo real</li>
+                    <li>Notificações automáticas de novas sugestões</li>
+                    <li>Integração com canais do Discord para gerenciamento direto</li>
+                    <li>Recebe e armazena as sugestões em tempo real</li>
                 </ul>
-                <a href="#" class="btn-primary" id="btn-sell-1" data-i18n="botao-sell">Comprar</a>
+                <a class="btn-primary" onclick="btnalert()">Comprar</a>
             </div>
             
 
             <!-- Card 2 -->
             <div class="pricing-card popular">
-                <span class="badge" data-i18n="popular">Mais Popular</span>
-                <h3 class="plan-title" data-i18n="nome-price-2">COMANDOS PERSONALIZADOS</h3>
-                <p class="plan-price" data-i18n="price-price-2">3€ <span>/mês *</span></p>
-                <p class="plan-description" data-i18n="description-price-2">
+                <span class="badge">Mais Popular</span>
+                <h3 class="plan-title">COMANDOS PERSONALIZADOS</h3>
+                <p class="plan-price">3€ <span>/mês *</span></p>
+                <p class="plan-description">
                     Para quem deseja criar comandos personalizados exclusivos, oferecendo mais controle e flexibilidade ao servidor.
                 </p>
                 <ul class="plan-features">
-                    <li data-i18n="plan-4">Resposta automática com conteúdo dinâmico</li>
-                    <li data-i18n="plan-5">Integração com variáveis para personalização avançada</li>
-                    <li data-i18n="plan-6">Controle de permissões para diferentes cargos</li>
+                    <li>Resposta automática com conteúdo dinâmico</li>
+                    <li>Integração com variáveis para personalização avançada</li>
+                    <li>Controle de permissões para diferentes cargos</li>
                 </ul>
-                <a href="#" class="btn-primary" id="btn-sell-2" data-i18n="botao-sell">Comprar</a>
+                <a class="btn-primary" onclick="btnalert()">Comprar</a>
             </div>
 
             <!-- Card 3 -->
             <div class="pricing-card">
-                <h3 class="plan-title" data-i18n="nome-price-3">ANTI-LINKS</h3>
-                <p class="plan-price" data-i18n="price-price-3">2€ <span>/mês *</span></p>
-                <p class="plan-description" data-i18n="description-price-3">
+                <h3 class="plan-title">ANTI-LINKS</h3>
+                <p class="plan-price">2€ <span>/mês *</span></p>
+                <p class="plan-description">
                     Proteje o teu servidor contra links indesejados e potencialmente perigosos, mantendo a segurança e a integridade do teu espaço.
                 </p>
                 <ul class="plan-features">
-                    <li data-i18n="plan-7">Bloqueio automático de links maliciosos</li>
-                    <li data-i18n="plan-8">Notificação ao administrador sobre links removidos</li>
-                    <li data-i18n="plan-9">Integração com logs para auditoria completa</li>
+                    <li>Bloqueio automático de links maliciosos</li>
+                    <li>Notificação ao administrador sobre links removidos</li>
+                    <li>Integração com logs para auditoria completa</li>
                 </ul>
-                <a href="#" class="btn-primary" id="btn-sell-3" data-i18n="botao-sell">Comprar</a>
+                <a class="btn-primary" onclick="btnalert()">Comprar</a>
             </div>
         </div>
     </div>
@@ -101,8 +103,8 @@
 <!-- Reviews Section -->
 <section class="reviews-section" id="avaliacoes">
     <div class="container">
-        <h2 class="section-title" data-i18n="review-title">Veja as nossas avaliações</h2>
-        <p class="section-subtitle" data-i18n="review-description">
+        <h2 class="section-title">Veja as nossas avaliações</h2>
+        <p class="section-subtitle">
             Abaixo você pode conferir as reviews de alguns dos nossos clientes.
         </p>
 
@@ -111,7 +113,7 @@
             <div class="review-card">
                 <img src="/site/static/images/+shop_logo.png" alt="Foto do Cliente" class="review-avatar">
                 <h3 class="review-name">+SHOP</h3>
-                <p class="review-text" data-i18n="review-1">
+                <p class="review-text">
                     "Não tenho palavras para expressar minha satisfação com o trabalho realizado! Agradeço imensamente pelo excelente serviço prestado. Qualidade excepcional e atendimento de altíssimo nível!"
                 </p>
             </div>
@@ -120,7 +122,7 @@
             <div class="review-card">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSieyaZb-hSOtWnc6wha3QQlMLL8_cfvr2WIQ&s" alt="Foto do Cliente" class="review-avatar">
                 <h3 class="review-name">Smurf_Verde</h3>
-                <p class="review-text" data-i18n="review-2">
+                <p class="review-text">
                     "O bot desenvolvido superou todas as minhas expectativas! Responde de forma ágil e foi criado com todas as funcionalidades desejadas. Atendimento excepcional!"
                 </p>
             </div>
@@ -129,16 +131,16 @@
             <div class="review-card">
                 <img src="https://cdn.discordapp.com/avatars/1150087342695129108/a_e925fefbe8c5806865c44f3fe018a21d.png" alt="Foto do Cliente" class="review-avatar">
                 <h3 class="review-name">kazzM</h3>
-                <p class="review-text" data-i18n="review-3">
+                <p class="review-text">
                     "O bot está excelente, com uma configuração impecável e design clean. Atendimento atencioso e prestativo. Recomendo com certeza!"
                 </p>
             </div>
 
             <!-- Review 4 -->
             <div class="review-card">
-                <img src="https://cdn.discordapp.com/avatars/1049052714966978682/a_b6f0da08763be7a87fbac2bef70839cb.png" alt="Foto do Cliente" class="review-avatar">
+                <img src="https://cdn.discordapp.com/avatars/1169309329460035715/af830c9b69732b894d69b471cfd8eb1b.png" alt="Foto do Cliente" class="review-avatar">
                 <h3 class="review-name">Igris</h3>
-                <p class="review-text" data-i18n="review-4">
+                <p class="review-text">
                     "Resultado é impecável. Pode comprar sem medo!"
                 </p>
             </div>
@@ -148,19 +150,19 @@
 <!-- FAQ Section -->
 <section class="faq-section" id="faq">
     <div class="container">
-        <h2 class="section-title" data-i18n="faq-title">Você tem alguma pergunta?</h2>
-        <p class="section-subtitle" data-i18n="faq-description">
+        <h2 class="section-title">Você tem alguma pergunta?</h2>
+        <p class="section-subtitle">
             Abaixo, você pode ver as perguntas mais frequentes.
         </p>
 
         <div class="faq">
             <!-- FAQ Item 1 -->
             <div class="faq-item">
-                <button class="faq-question" data-i18n="faq-1">
+                <button class="faq-question">
                     Como posso comprar um bot para o Discord?
                     <span class="faq-icon">+</span>
                 </button>
-                <div class="faq-answer" data-i18n="faq-des-1">
+                <div class="faq-answer">
                     <p>
                         A compra pode ser feita diretamente através de nosso Discord. Basta selecionar o bot desejado, abrir um TICKET, informar seu pedido e seguir as instruções!
                     </p>
@@ -169,11 +171,11 @@
 
             <!-- FAQ Item 2 -->
             <div class="faq-item">
-                <button class="faq-question" data-i18n="faq-2">
+                <button class="faq-question">
                     É possível solicitar reembolso após a compra?
                     <span class="faq-icon">+</span>
                 </button>
-                <div class="faq-answer" data-i18n="faq-des-2">
+                <div class="faq-answer">
                     <p>
                         Não oferecemos reembolso após a compra, mas garantimos suporte completo para resolver qualquer problema que você possa encontrar.
                     </p>
@@ -182,11 +184,11 @@
 
             <!-- FAQ Item 3 -->
             <div class="faq-item">
-                <button class="faq-question" data-i18n="faq-3">
+                <button class="faq-question">
                     Posso revender ou distribuir os bots adquiridos?
                     <span class="faq-icon">+</span>
                 </button>
-                <div class="faq-answer" data-i18n="faq-des-3">
+                <div class="faq-answer">
                     <p>
                         Não é permitido revender ou distribuir os bots adquiridos, conforme os termos de uso acordados.
                     </p>
@@ -195,11 +197,11 @@
 
             <!-- FAQ Item 4 -->
             <div class="faq-item">
-                <button class="faq-question" data-i18n="faq-4">
+                <button class="faq-question">
                     Qual é o prazo para manter o orçamento e o valor pago?
                     <span class="faq-icon">+</span>
                 </button>
-                <div class="faq-answer" data-i18n="faq-des-4">
+                <div class="faq-answer">
                     <p>
                         O orçamento e o valor pago permanecem válidos por 7 dias úteis a partir da data de aprovação.
                     </p>
@@ -208,11 +210,11 @@
 
             <!-- FAQ Item 5 -->
             <div class="faq-item">
-                <button class="faq-question" data-i18n="faq-5">
+                <button class="faq-question">
                     Quais são os direitos autorais sobre os bots adquiridos?
                     <span class="faq-icon">+</span>
                 </button>
-                <div class="faq-answer" data-i18n="faq-des-5">
+                <div class="faq-answer">
                     <p>
                         Os direitos autorais são reservados ao desenvolvedor, mas você terá uma licença de uso total conforme os termos do contrato.
                     </p>
@@ -226,8 +228,29 @@
       &copy; 2024 NTM DEV. All rights reserved.
     </p>
 </footer>
-<script src="/site/static/js/index.js"></script>
-<script src="https://unpkg.com/i18next/i18next.min.js"></script>
-<script src="/site/static/js/translations.js"></script>
+<script src="/site/static/js/login-PT.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("a").on('click', function(event) {
+
+    if (this.hash !== "") {
+        event.preventDefault();
+
+        var hash = this.hash;
+
+    $('html, body').animate({
+        scrollTop: $(hash).offset().top
+        }, 800, function(){
+   
+        window.location.hash = hash;
+            });
+        }
+    });
+});
+function translatorbtn(language) {
+    window.location.href = "/change_language_login?lang=" + language;
+}
+</script>
 </body>
 </html>

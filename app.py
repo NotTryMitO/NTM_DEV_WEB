@@ -6,7 +6,8 @@ import asyncio
 import os
 from dotenv import load_dotenv
 
-app = Quart(__name__, template_folder="site/templates")
+
+app = Quart(__name__, template_folder='site/templates')
 app.secret_key = 'bananaazul'
 
 load_dotenv()
@@ -34,16 +35,15 @@ bot2 = commands.Bot(command_prefix=".", intents=intents) #bot ticket
 member_role = 1303727367901941822
 REQUIRED_ROLE_ID = 1303726904569892884
 
-# Rota principal
+# Rota para autenticação com Discord
 @app.route("/")
 async def home():
     if "user_id" in session:
         username = session["username"]
         avatar_url = session["avatar_url"]
-        return await render_template("index.html", username=username, avatar_url=avatar_url)
-    return await render_template("login.html")  
+        return await render_template("index-PT.html", username=username, avatar_url=avatar_url)
+    return await render_template("login-PT.html")
 
-# Rota para autenticação com Discord
 @app.route("/discord/login")
 async def login():
     return redirect(f"https://discord.com/oauth2/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&response_type=code&scope=identify")
@@ -99,24 +99,70 @@ async def callback():
     session["username"] = username
     session["avatar_url"] = avatar_url
 
-    # Redirecionar
+    # Redirecionar para a página index
     return redirect("/")
 
-# Página principal (rota protegida)
-@app.route("/index.html")
-async def index():
+# Página de login para a versão PT
+@app.route("/login-PT")
+async def login_PT():
+    return await render_template("login-PT.html")
+
+# Página de login para a versão US
+@app.route("/login-US")
+async def login_US():
+    return await render_template("login-US.html")
+
+
+# Página principal para a versão PT
+@app.route("/index-PT")
+async def index_PT():
     if "user_id" in session:
         username = session["username"]
-        return await render_template("index.html", username=username)
+        avatar_url = session["avatar_url"]
+        return await render_template("index-PT.html", username=username, avatar_url=avatar_url)
     return redirect("/")
 
+
+# Página principal para a versão US
+@app.route("/index-US")
+async def index_US():
+    if "user_id" in session:
+        username = session["username"]
+        avatar_url = session["avatar_url"]
+        return await render_template("index-US.html", username=username, avatar_url=avatar_url)
+    return redirect("/")
+
+
+# Rota para mudança de idioma
+@app.route("/change_language")
+async def change_language():
+    language = request.args.get('lang')
+    if language == "US":
+        return redirect("/index-US")
+    else:
+        return redirect("/index-PT")
+
+# Rota para mudança de idioma
+@app.route("/change_language_login")
+async def change_language_login():
+    language = request.args.get('lang')
+    if language == "US":
+        return redirect("/login-US")  # Redireciona para o login em inglês
+    else:
+        return redirect("/login-PT")  # Redireciona para o login em português
+
 # Rota para arquivos estáticos
+@app.route('/site/templates/<path:filename>')
+async def templates_path(filename):
+    return await send_from_directory('site/templates', filename)
+
+# Rota para arquivos template
 @app.route('/site/static/<path:filename>')
 async def static_files(filename):
     return await send_from_directory('site/static', filename)
 
-@app.route("/comprar", methods=["POST"])
-async def comprar():
+@app.route("/comprar1", methods=["POST"])
+async def comprar1():
     if "user_id" not in session:
         return {"success": False, "message": "Usuário não autenticado."}, 401
 
@@ -132,7 +178,7 @@ async def comprar():
             return {"success": False, "message": "Erro ao buscar usuário no Discord."}, 500
 
     try:
-        mensagem = f"Olá, {session['username']}! Para fazer a compra entre no nosso discord, https://discord.gg/Yau8FUsq e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
+        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de sugestões entre no nosso discord, https://discord.gg/Yau8FUsq e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
         await user.send(mensagem)
         return {"success": True, "message": "Mensagem enviada com sucesso."}, 200
     except discord.Forbidden:
@@ -141,14 +187,152 @@ async def comprar():
         print(f"Erro ao enviar mensagem para {user_id}: {e}")
         return {"success": False, "message": "Erro ao enviar a mensagem."}, 500
 
+@app.route("/comprar2", methods=["POST"])
+async def comprar2():
+    if "user_id" not in session:
+        return {"success": False, "message": "Usuário não autenticado."}, 401
+
+    user_id = int(session["user_id"])
+    user = bot1.get_user(user_id)
+
+    if not user:
+        try:
+            user = await bot1.fetch_user(user_id)
+        except discord.NotFound:
+            return {"success": False, "message": "Usuário não encontrado no Discord."}, 404
+        except discord.HTTPException as e:
+            return {"success": False, "message": "Erro ao buscar usuário no Discord."}, 500
+
+    try:
+        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de comandos personalizado entre no nosso discord, https://discord.gg/Yau8FUsq e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
+        await user.send(mensagem)
+        return {"success": True, "message": "Mensagem enviada com sucesso."}, 200
+    except discord.Forbidden:
+        return {"success": False, "message": "Não foi possível enviar mensagem. O usuário pode ter bloqueado mensagens diretas."}, 403
+    except discord.HTTPException as e:
+        print(f"Erro ao enviar mensagem para {user_id}: {e}")
+        return {"success": False, "message": "Erro ao enviar a mensagem."}, 500
+
+@app.route("/comprar3", methods=["POST"])
+async def comprar3():
+    if "user_id" not in session:
+        return {"success": False, "message": "Usuário não autenticado."}, 401
+
+    user_id = int(session["user_id"])
+    user = bot1.get_user(user_id)
+
+    if not user:
+        try:
+            user = await bot1.fetch_user(user_id)
+        except discord.NotFound:
+            return {"success": False, "message": "Usuário não encontrado no Discord."}, 404
+        except discord.HTTPException as e:
+            return {"success": False, "message": "Erro ao buscar usuário no Discord."}, 500
+
+    try:
+        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de Anti-Links entre no nosso discord, https://discord.gg/Yau8FUsq e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
+        await user.send(mensagem)
+        return {"success": True, "message": "Mensagem enviada com sucesso."}, 200
+    except discord.Forbidden:
+        return {"success": False, "message": "Não foi possível enviar mensagem. O usuário pode ter bloqueado mensagens diretas."}, 403
+    except discord.HTTPException as e:
+        print(f"Erro ao enviar mensagem para {user_id}: {e}")
+        return {"success": False, "message": "Erro ao enviar a mensagem."}, 500
+
+@app.route("/buy1", methods=["POST"])
+async def buy1():
+    if "user_id" not in session:
+        return {"success": False, "message": "User not authenticated."}, 401
+
+    user_id = int(session["user_id"])
+    user = bot1.get_user(user_id)
+
+    if not user:
+        try:
+            user = await bot1.fetch_user(user_id)
+        except discord.NotFound:
+            return {"success": False, "message": "User not found on Discord."}, 404
+        except discord.HTTPException as e:
+            return {"success": False, "message": "Error fetching user on Discord."}, 500
+
+    try:
+        message = (
+            f"Hello, {session['username']}! To purchase the suggestion bot, join our Discord at https://discord.gg/Yau8FUsq and open a ticket at "
+            "https://discord.com/channels/1290074291047632919/1303725153934381090. If you have any questions, please contact our support team."
+        )
+        await user.send(message)
+        return {"success": True, "message": "Message sent successfully."}, 200
+    except discord.Forbidden:
+        return {"success": False, "message": "Could not send message. The user may have blocked direct messages."}, 403
+    except discord.HTTPException as e:
+        print(f"Error sending message to {user_id}: {e}")
+        return {"success": False, "message": "Error sending the message."}, 500
+
+@app.route("/buy2", methods=["POST"])
+async def buy2():
+    if "user_id" not in session:
+        return {"success": False, "message": "User not authenticated."}, 401
+
+    user_id = int(session["user_id"])
+    user = bot1.get_user(user_id)
+
+    if not user:
+        try:
+            user = await bot1.fetch_user(user_id)
+        except discord.NotFound:
+            return {"success": False, "message": "User not found on Discord."}, 404
+        except discord.HTTPException as e:
+            return {"success": False, "message": "Error fetching user on Discord."}, 500
+
+    try:
+        message = (
+            f"Hello, {session['username']}! To purchase the custom command bot, join our Discord at https://discord.gg/Yau8FUsq and open a ticket at "
+            "https://discord.com/channels/1290074291047632919/1303725153934381090. If you have any questions, please contact our support team."
+        )
+        await user.send(message)
+        return {"success": True, "message": "Message sent successfully."}, 200
+    except discord.Forbidden:
+        return {"success": False, "message": "Could not send message. The user may have blocked direct messages."}, 403
+    except discord.HTTPException as e:
+        print(f"Error sending message to {user_id}: {e}")
+        return {"success": False, "message": "Error sending the message."}, 500
+
+@app.route("/buy3", methods=["POST"])
+async def buy3():
+    if "user_id" not in session:
+        return {"success": False, "message": "User not authenticated."}, 401
+
+    user_id = int(session["user_id"])
+    user = bot1.get_user(user_id)
+
+    if not user:
+        try:
+            user = await bot1.fetch_user(user_id)
+        except discord.NotFound:
+            return {"success": False, "message": "User not found on Discord."}, 404
+        except discord.HTTPException as e:
+            return {"success": False, "message": "Error fetching user on Discord."}, 500
+
+    try:
+        message = (
+            f"Hello, {session['username']}! To purchase the Anti-Links bot, join our Discord at https://discord.gg/Yau8FUsq and open a ticket at "
+            "https://discord.com/channels/1290074291047632919/1303725153934381090. If you have any questions, please contact our support team."
+        )
+        await user.send(message)
+        return {"success": True, "message": "Message sent successfully."}, 200
+    except discord.Forbidden:
+        return {"success": False, "message": "Could not send message. The user may have blocked direct messages."}, 403
+    except discord.HTTPException as e:
+        print(f"Error sending message to {user_id}: {e}")
+        return {"success": False, "message": "Error sending the message."}, 500
+
 @app.route("/logout")
 async def logout():
     session.clear()
     return redirect("/")
 
 async def start_quart_app():
-    port = int(os.environ.get("PORT", 5000))
-    await app.run_task(host="0.0.0.0", port=port)
+    await app.run_task(host="127.0.0.1", port=5000)
 
 '''bot main - bot1 - starts'''
 #role automatica
@@ -355,30 +539,11 @@ async def ticket(ctx, interaction = None):
 '''bot ticket - bot2 - ends'''
 
 async def main():
-    print("Iniciando o main...")
-    async with bot1:
-        bot1.loop.create_task(app.run_task(host="0.0.0.0", port=5000))
-        try:
-            # Inicia os bots
-            print("Iniciando bot1 e bot2...")
-            await asyncio.gather(
-                bot1.start(bot1_token),
-                bot2.start(bot2_token)
-            )
-        except Exception as e:
-            print(f"Erro ao iniciar os bots: {e}")
-            raise
-
-async def main_loop():
-    while True:
-        try:
-            await main()
-        except Exception as e:
-            print(f"Erro ao executar main: {e}")
-        finally:
-            print("Reiniciando em 30 segundos...")
-            await asyncio.sleep(30)
+    await asyncio.gather(
+        start_quart_app(),
+        bot1.start(bot1_token),
+        bot2.start(bot2_token)
+    )
 
 if __name__ == "__main__":
-    asyncio.run(main_loop())
-
+    asyncio.run(main())

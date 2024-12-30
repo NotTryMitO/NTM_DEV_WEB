@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTM DEV | Bots de Qualidade</title>
+    <link rel="stylesheet" href="/site/static/css/login.css">
+    <link rel="icon" href="/site/static/images/logo3.png" type="image/png">
+</head>
+<nav class="navbar">
+    <div class="logo"><img src="/site/static/images/logo3.png" alt="Logo NTM DEV"></div>
+    <button class="menu-toggle" aria-label="Abrir menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    <ul class="nav-menu">
+        <li data-i18n="nav-inicio"><a href="#home">Home</a></li>
+        <li data-i18n="nav-bots"=""><a href="#bots">Bots</a></li>
+        <li data-i18n="nav-avaliacoes"><a href="#avaliacoes">Reviews</a></li>
+        <li data-i18n="faq"><a href="#faq">FAQ</a></li>
+        <li class="separator">|</li>
+        <a class="translator" onclick="translatorbtn('PT')">
+            <button class="language-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12">
+                    <path d="M3.784 11.25h3.99c.153-2.35.994-4.44 1.815-5.969.282-.525.564-.988.82-1.378a8.255 8.255 0 0 0-6.625 7.347M12 4.232c-.305.43-.697 1.03-1.09 1.759-.75 1.398-1.481 3.237-1.632 5.259h5.444c-.15-2.022-.882-3.861-1.633-5.259-.392-.73-.784-1.33-1.089-1.76m2.722 8.518H9.278c.15 2.022.882 3.861 1.633 5.259.392.73.784 1.33 1.089 1.76.305-.43.697-1.03 1.09-1.76.75-1.398 1.481-3.237 1.632-5.259m-4.313 7.347c-.256-.39-.538-.853-.82-1.378-.82-1.528-1.662-3.618-1.815-5.969h-3.99a8.255 8.255 0 0 0 6.625 7.347m3.182 0c.256-.39.538-.853.82-1.378.82-1.528 1.662-3.618 1.815-5.969h3.99a8.255 8.255 0 0 1-6.625 7.347m6.625-8.847h-3.99c-.153-2.35-.994-4.44-1.815-5.969a19 19 0 0 0-.82-1.378 8.255 8.255 0 0 1 6.625 7.347M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12" fill="none" stroke="black" stroke-width="2"/>
+                </svg>
+                Português
+            </button>
+        </a>
+        <li class="login-btn">
+            <a href="/discord/login">Sign in</a>
+        </li>
+    </ul>
+</nav>
+<body>
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h4 class="subtitle">By the creators of NTM DEV</h4>
+            <h1 class="title">Get your BOT<br> in record time.</h1>
+            <p class="description">
+                Discord bots skillfully designed and crafted by NTM DEV creators. The perfect team to develop your BOT.
+            </p>
+        </div>
+    </section>
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="bots">
+        <div class="container">
+            <h2 class="section-title">Discover our BOTs</h2>
+            <p class="section-subtitle">
+                Below you can see our plans and choose the one that best suits your needs.
+            </p>
+    
+            <div class="pricing-cards">
+                <!-- Card 1 -->
+                <div class="pricing-card">
+                    <h3 class="plan-title">SUGGESTION</h3>
+                    <p class="plan-price">1€ <span>/month *</span></p>
+                    <p class="plan-description">
+                        Ideal for efficiently managing suggestions and facilitating decision-making.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Automatic notifications of new suggestions</li>
+                        <li>Integration with Discord channels for direct management</li>
+                        <li>Receive and store suggestions in real time</li>
+                    </ul>
+                    <a class="btn-primary" onclick="btnalert()">Buy</a>
+                </div>
+                
+    
+                <!-- Card 2 -->
+                <div class="pricing-card popular">
+                    <span class="badge">Most Popular</span>
+                    <h3 class="plan-title">CUSTOM COMMANDS</h3>
+                    <p class="plan-price">3€ <span>/month *</span></p>
+                    <p class="plan-description">
+                        For those who want to create exclusive custom commands, offering more control and flexibility.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Automatic response with dynamic content</li>
+                        <li>Integration with variables for advanced customization</li>
+                        <li>Permission control for different roles</li>
+                    </ul>
+                    <a class="btn-primary" onclick="btnalert()">Buy</a>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="pricing-card">
+                    <h3 class="plan-title">ANTI-LINKS</h3>
+                    <p class="plan-price">2€ <span>/month *</span></p>
+                    <p class="plan-description">
+                        Protect your server from unwanted and potentially dangerous links, maintaining security and integrity.
+                    </p>
+                    <ul class="plan-features">
+                        <li>Automatic blocking of malicious links</li>
+                        <li>Admin notification of removed links</li>
+                        <li>Integration with logs for full auditing</li>
+                    </ul>
+                    <a class="btn-primary" onclick="btnalert()">Buy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="avaliacoes">
+        <div class="container">
+            <h2 class="section-title">See our reviews</h2>
+            <p class="section-subtitle">
+                Below you can check the reviews of some of our customers.
+            </p>
+    
+            <div class="reviews-carousel">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <img src="/site/static/images/+shop_logo.png" alt="Foto do Cliente" class="review-avatar">
+                    <h3 class="review-name">+SHOP</h3>
+                    <p class="review-text">
+                        "I have no words to express my satisfaction with the work done! I thank you immensely for the excellent service provided. Exceptional quality and top-notch service!"
+                    </p>
+                </div>
+    
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSieyaZb-hSOtWnc6wha3QQlMLL8_cfvr2WIQ&s" alt="Foto do Cliente" class="review-avatar">
+                    <h3 class="review-name">Smurf_Verde</h3>
+                    <p class="review-text">
+                        "The bot developed exceeded all my expectations! It responds quickly and was created with all the desired features. Exceptional service!"
+                    </p>
+                </div>
+    
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <img src="https://cdn.discordapp.com/avatars/1150087342695129108/a_e925fefbe8c5806865c44f3fe018a21d.png" alt="Foto do Cliente" class="review-avatar">
+                    <h3 class="review-name">kazzM</h3>
+                    <p class="review-text">
+                        "The bot is excellent, with impeccable setup and clean design. Attentive and helpful service. Highly recommend!"
+                    </p>
+                </div>
+    
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <img src="https://cdn.discordapp.com/avatars/1169309329460035715/af830c9b69732b894d69b471cfd8eb1b.png" alt="Foto do Cliente" class="review-avatar">
+                    <h3 class="review-name">Igris</h3>
+                    <p class="review-text">
+                        "The result is impeccable. You can buy without fear!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Do you have a question?</h2>
+            <p class="section-subtitle">
+                Below, you can see the most frequently asked questions.
+            </p>
+    
+            <div class="faq">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How can I buy a bot for Discord?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Purchases can be made directly through our Discord. Just select the desired bot, open a TICKET, provide your request, and follow the instructions!
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is it possible to request a refund after purchase?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            We do not offer refunds after purchase, but we guarantee full support to resolve any issues you may encounter.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I resell or distribute the purchased bots?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Reselling or distributing the purchased bots is not allowed, according to the agreed terms of use.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is the time frame for maintaining the budget and the amount paid?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            The budget and the amount paid remain valid for 7 working days from the approval date.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What are the copyright rights to the purchased bots?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Copyrights are reserved for the developer, but you will have full usage rights as per the contract terms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>
+          &copy; 2024 NTM DEV. All rights reserved.
+        </p>
+    </footer>
+    <script src="/site/static/js/login-US.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    $("a").on('click', function(event) {
+
+        if (this.hash !== "") {
+            event.preventDefault();
+
+            var hash = this.hash;
+
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+            }, 800, function(){
+   
+            window.location.hash = hash;
+                });
+            }
+        });
+    });
+    function translatorbtn(language) {
+        window.location.href = "/change_language_login?lang=" + language;
+    }
+    </script>
+    </body>
+</html>
