@@ -178,7 +178,7 @@ async def comprar1():
             return {"success": False, "message": "Erro ao buscar usuário no Discord."}, 500
 
     try:
-        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de sugestões entre no nosso discord, https://discord.gg/Yau8FUsq e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
+        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de sugestões entre no nosso discord, https://discord.gg/aKpwVrXgyx e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
         await user.send(mensagem)
         return {"success": True, "message": "Mensagem enviada com sucesso."}, 200
     except discord.Forbidden:
@@ -204,7 +204,7 @@ async def comprar2():
             return {"success": False, "message": "Erro ao buscar usuário no Discord."}, 500
 
     try:
-        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de comandos personalizado entre no nosso discord, https://discord.gg/Yau8FUsq e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
+        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de comandos personalizado entre no nosso discord, https://discord.gg/aKpwVrXgyx e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
         await user.send(mensagem)
         return {"success": True, "message": "Mensagem enviada com sucesso."}, 200
     except discord.Forbidden:
@@ -230,7 +230,7 @@ async def comprar3():
             return {"success": False, "message": "Erro ao buscar usuário no Discord."}, 500
 
     try:
-        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de Anti-Links entre no nosso discord, https://discord.gg/Yau8FUsq e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
+        mensagem = f"Olá, {session['username']}! Para fazer a compra do bot de Anti-Links entre no nosso discord, https://discord.gg/aKpwVrXgyx e abra um ticket em https://discord.com/channels/1290074291047632919/1303725153934381090. Se tiver dúvidas, entre em contato com nossa equipe de suporte."
         await user.send(mensagem)
         return {"success": True, "message": "Mensagem enviada com sucesso."}, 200
     except discord.Forbidden:
@@ -257,7 +257,7 @@ async def buy1():
 
     try:
         message = (
-            f"Hello, {session['username']}! To purchase the suggestion bot, join our Discord at https://discord.gg/Yau8FUsq and open a ticket at "
+            f"Hello, {session['username']}! To purchase the suggestion bot, join our Discord at https://discord.gg/aKpwVrXgyx and open a ticket at "
             "https://discord.com/channels/1290074291047632919/1303725153934381090. If you have any questions, please contact our support team."
         )
         await user.send(message)
@@ -286,7 +286,7 @@ async def buy2():
 
     try:
         message = (
-            f"Hello, {session['username']}! To purchase the custom command bot, join our Discord at https://discord.gg/Yau8FUsq and open a ticket at "
+            f"Hello, {session['username']}! To purchase the custom command bot, join our Discord at https://discord.gg/aKpwVrXgyx and open a ticket at "
             "https://discord.com/channels/1290074291047632919/1303725153934381090. If you have any questions, please contact our support team."
         )
         await user.send(message)
@@ -315,7 +315,7 @@ async def buy3():
 
     try:
         message = (
-            f"Hello, {session['username']}! To purchase the Anti-Links bot, join our Discord at https://discord.gg/Yau8FUsq and open a ticket at "
+            f"Hello, {session['username']}! To purchase the Anti-Links bot, join our Discord at https://discord.gg/aKpwVrXgyx and open a ticket at "
             "https://discord.com/channels/1290074291047632919/1303725153934381090. If you have any questions, please contact our support team."
         )
         await user.send(message)
