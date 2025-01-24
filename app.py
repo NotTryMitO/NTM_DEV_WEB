@@ -15,7 +15,7 @@ load_dotenv()
 # Configurações do Discord
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-REDIRECT_URI = "https://ntm-dev-web.onrender.com/discord/callback"
+REDIRECT_URI = "https://ntmdev.me/discord/callback"
 
 # cenas do bot
 intents = discord.Intents.default()
